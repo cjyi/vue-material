@@ -9,7 +9,8 @@
           :md-date.sync="localMinDate"
           :md-disabled-dates="mdDisabledDates"
           :mdImmediately="mdImmediately"
-          @md-closed="toggleMinDateDialog"
+          @update:mdDate="toggleMinDateDialog"
+          @md-closed="closeMinDateDialog"
         />
       </keep-alive>
     </span>
@@ -205,6 +206,9 @@
       maxDateDisabledDates(date) {
         return new Date(this.minDate) >= date
       },
+      closeMinDateDialog() {
+        this.showMinDateDialog = false;
+      },
       toggleMinDateDialog () {
         if (!isFirefox || this.mdOverrideNative) {
           this.showMinDateDialog = !this.showMinDateDialog
@@ -222,6 +226,7 @@
         if (!isFirefox || this.mdOverrideNative) {
           this.showMaxDateDialog = !this.showMaxDateDialog
           if (this.showMaxDateDialog) {
+            this.mdImmediately = false;
             this.$emit('md-maxDate-opened')
           } else {
             this.$emit('md-maxDate-closed')
@@ -231,15 +236,20 @@
         }
       },
       onMinDateFocus() {
+        this.showMaxDateDialog = false;
         this.mdImmediately = true;
         if (this.mdOpenOnFocus) {
           this.toggleMinDateDialog()
         }
       },
       onMaxDateFocus() {
-        this.mdImmediately = false;
         if (this.mdOpenOnFocus) {
-          this.toggleMaxDateDialog()
+          if(this.minDate){
+            this.showMinDateDialog = false;
+            this.toggleMaxDateDialog();
+          }else{
+            this.showMinDateDialog = true;
+          }
         }
       },
       minDateToLocalDate () {
