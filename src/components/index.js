@@ -9,6 +9,7 @@ import MdCheckbox from './MdCheckbox'
 import MdChips from './MdChips'
 import MdContent from './MdContent'
 import MdDatepicker from './MdDatepicker'
+import MdDateRangePicker from './MdDateRangePicker'
 import MdDialog from './MdDialog'
 import MdDialogAlert from './MdDialog/MdDialogAlert'
 import MdDialogConfirm from './MdDialog/MdDialogConfirm'
@@ -49,6 +50,7 @@ export {
   MdChips,
   MdContent,
   MdDatepicker,
+  MdDateRangePicker,
   MdDialog,
   MdDialogAlert,
   MdDialogConfirm,
