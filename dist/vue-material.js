@@ -11767,6 +11767,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 var _vue = __webpack_require__(8);
 
@@ -11979,6 +11980,9 @@ exports.default = {
     maxDateDisabledDates: function maxDateDisabledDates(date) {
       return new Date(this.minDate) >= date;
     },
+    closeMinDateDialog: function closeMinDateDialog() {
+      this.showMinDateDialog = false;
+    },
     toggleMinDateDialog: function toggleMinDateDialog() {
       if (!_isFirefox2.default || this.mdOverrideNative) {
         this.showMinDateDialog = !this.showMinDateDialog;
@@ -11996,6 +12000,7 @@ exports.default = {
       if (!_isFirefox2.default || this.mdOverrideNative) {
         this.showMaxDateDialog = !this.showMaxDateDialog;
         if (this.showMaxDateDialog) {
+          this.mdImmediately = false;
           this.$emit('md-maxDate-opened');
         } else {
           this.$emit('md-maxDate-closed');
@@ -12005,15 +12010,20 @@ exports.default = {
       }
     },
     onMinDateFocus: function onMinDateFocus() {
+      this.showMaxDateDialog = false;
       this.mdImmediately = true;
       if (this.mdOpenOnFocus) {
         this.toggleMinDateDialog();
       }
     },
     onMaxDateFocus: function onMaxDateFocus() {
-      this.mdImmediately = false;
       if (this.mdOpenOnFocus) {
-        this.toggleMaxDateDialog();
+        if (this.minDate) {
+          this.showMinDateDialog = false;
+          this.toggleMaxDateDialog();
+        } else {
+          this.showMinDateDialog = true;
+        }
       }
     },
     minDateToLocalDate: function minDateToLocalDate() {
@@ -27677,13 +27687,16 @@ var render = function() {
                       mdImmediately: _vm.mdImmediately
                     },
                     on: {
-                      "update:mdDate": function($event) {
-                        _vm.localMinDate = $event
-                      },
+                      "update:mdDate": [
+                        function($event) {
+                          _vm.localMinDate = $event
+                        },
+                        _vm.toggleMinDateDialog
+                      ],
                       "update:md-date": function($event) {
                         _vm.localMinDate = $event
                       },
-                      "md-closed": _vm.toggleMinDateDialog
+                      "md-closed": _vm.closeMinDateDialog
                     }
                   })
                 : _vm._e()
