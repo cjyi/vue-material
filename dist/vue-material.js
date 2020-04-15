@@ -13964,7 +13964,7 @@ exports.default = {
 
       var slot = this.$slots.default;
 
-      return slot ? slot[0].text.trim() : '';
+      return slot && slot[0].text ? slot[0].text.trim() : '';
     },
     setIsSelected: function setIsSelected() {
       if (!this.isMultiple) {
