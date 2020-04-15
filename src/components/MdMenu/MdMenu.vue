@@ -30,6 +30,10 @@
         type: Boolean,
         default: true
       },
+      mdCloseOnBackdropClick: {
+        type: Boolean,
+        default: true
+      },
       mdCloseOnClick: {
         type: Boolean,
         default: false
@@ -61,6 +65,7 @@
           dense: this.mdDense,
           closeOnSelect: this.mdCloseOnSelect,
           closeOnClick: this.mdCloseOnClick,
+          closeOnBackdropClick: this.mdCloseOnBackdropClick,
           bodyClickObserver: null,
           windowResizeObserver: null,
           $el: this.$el

@@ -13204,6 +13204,10 @@ exports.default = {
       type: Boolean,
       default: true
     },
+    mdCloseOnBackdropClick: {
+      type: Boolean,
+      default: true
+    },
     mdCloseOnClick: {
       type: Boolean,
       default: false
@@ -13228,6 +13232,7 @@ exports.default = {
         dense: this.mdDense,
         closeOnSelect: this.mdCloseOnSelect,
         closeOnClick: this.mdCloseOnClick,
+        closeOnBackdropClick: this.mdCloseOnBackdropClick,
         bodyClickObserver: null,
         windowResizeObserver: null,
         $el: this.$el
@@ -13627,7 +13632,7 @@ exports.default = new _MdComponent2.default({
         this.MdMenu.bodyClickObserver = new _MdObserveEvent2.default(document.body, 'click', function ($event) {
           $event.stopPropagation();
 
-          if (!_this3.isMenu($event) && (_this3.MdMenu.closeOnClick || _this3.isBackdropExpectMenu($event))) {
+          if (!_this3.isMenu($event) && (_this3.MdMenu.closeOnClick || _this3.MdMenu.closeOnBackdropClick && _this3.isBackdropExpectMenu($event))) {
             _this3.MdMenu.active = false;
             _this3.MdMenu.bodyClickObserver.destroy();
             _this3.MdMenu.windowResizeObserver.destroy();
