@@ -6,7 +6,7 @@
     <slot />
 
     <keep-alive>
-      <md-datepicker-dialog
+      <md-date-time-picker-dialog
         v-if="showDialog"
         :md-date.sync="localDate"
         :md-disabled-dates="mdDisabledDates"
@@ -27,7 +27,7 @@
   import isValid from 'date-fns/isValid'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
-  import MdDatepickerDialog from './MdDatepickerDialog'
+  import MdDateTimePickerDialog from './MdDateTimePickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
   import MdDebounce from 'core/utils/MdDebounce'
   import MdField from 'components/MdField/MdField'
@@ -40,7 +40,7 @@
       MdDateIcon,
       MdField,
       MdInput,
-      MdDatepickerDialog
+      MdDateTimePickerDialog
     },
     props: {
       value: [String, Number, Date],

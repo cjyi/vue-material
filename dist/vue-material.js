@@ -12805,9 +12805,9 @@ var _MdOverlay = __webpack_require__(15);
 
 var _MdOverlay2 = _interopRequireDefault(_MdOverlay);
 
-var _MdDatepickerDialog = __webpack_require__(339);
+var _MdDateTimePickerDialog = __webpack_require__(339);
 
-var _MdDatepickerDialog2 = _interopRequireDefault(_MdDatepickerDialog);
+var _MdDateTimePickerDialog2 = _interopRequireDefault(_MdDateTimePickerDialog);
 
 var _MdDateIcon = __webpack_require__(34);
 
@@ -12834,7 +12834,7 @@ exports.default = {
     MdDateIcon: _MdDateIcon2.default,
     MdField: _MdField2.default,
     MdInput: _MdInput2.default,
-    MdDatepickerDialog: _MdDatepickerDialog2.default
+    MdDateTimePickerDialog: _MdDateTimePickerDialog2.default
   },
   props: {
     value: [String, Number, Date],
@@ -13244,7 +13244,7 @@ var getElements = function getElements(el, selector) {
 };
 
 exports.default = new _MdComponent2.default({
-  name: 'MdDatepickerDialog',
+  name: 'MdDateTimePickerDialog',
   components: {
     MdPopover: _MdPopover2.default,
     MdArrowRightIcon: _MdArrowRightIcon2.default,
@@ -28658,10 +28658,10 @@ if (false) {(function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue__);
-/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4060a3ea_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MdDatepickerDialog_vue__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a9966f7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MdDateTimePickerDialog_vue__ = __webpack_require__(344);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -28682,14 +28682,14 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDatepickerDialog_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4060a3ea_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MdDatepickerDialog_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MdDateTimePickerDialog_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6a9966f7_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MdDateTimePickerDialog_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "src/components/MdDateTimePicker/MdDatepickerDialog.vue"
+Component.options.__file = "src/components/MdDateTimePicker/MdDateTimePickerDialog.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -28698,9 +28698,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4060a3ea", Component.options)
+    hotAPI.createRecord("data-v-6a9966f7", Component.options)
   } else {
-    hotAPI.reload("data-v-4060a3ea", Component.options)
+    hotAPI.reload("data-v-6a9966f7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -29221,7 +29221,11 @@ var render = function() {
                               _c(
                                 "md-select",
                                 {
-                                  attrs: { id: "hour" },
+                                  attrs: {
+                                    id: "hour",
+                                    mdClass:
+                                      "md-date-time-picker-time-select md-date-time-picker-time-select-hour"
+                                  },
                                   on: { "md-selected": _vm.selectHour },
                                   model: {
                                     value: _vm.hour,
@@ -29264,7 +29268,11 @@ var render = function() {
                               _c(
                                 "md-select",
                                 {
-                                  attrs: { id: "minutes" },
+                                  attrs: {
+                                    id: "minutes",
+                                    mdClass:
+                                      "md-date-time-picker-time-select md-date-time-picker-time-select-minute"
+                                  },
                                   on: { "md-selected": _vm.selectMinute },
                                   model: {
                                     value: _vm.minute,
@@ -29336,7 +29344,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4060a3ea", esExports)
+    require("vue-hot-reload-api")      .rerender("data-v-6a9966f7", esExports)
   }
 }
 
@@ -29388,7 +29396,7 @@ var render = function() {
         "keep-alive",
         [
           _vm.showDialog
-            ? _c("md-datepicker-dialog", {
+            ? _c("md-date-time-picker-dialog", {
                 attrs: {
                   "md-date": _vm.localDate,
                   "md-disabled-dates": _vm.mdDisabledDates,

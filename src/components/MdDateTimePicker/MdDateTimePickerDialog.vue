@@ -81,7 +81,7 @@
             <div class="md-layout-item" style="width: 48%">
               <md-field>
                 <label for="hour">Hour</label>
-                <md-select id="hour" v-model="hour" @md-selected="selectHour">
+                <md-select id="hour" v-model="hour" @md-selected="selectHour" :mdClass="'md-date-time-picker-time-select md-date-time-picker-time-select-hour'">
                   <md-option v-for="_h in hours"
                         :value="_h"
                         :key="_h"
@@ -93,7 +93,7 @@
             <div class="md-layout-item" style="width: 48%;padding-left: 4%;">
               <md-field>
                  <label for="minutes">Minutes</label>
-                <md-select id="minutes" v-model="minute" @md-selected="selectMinute">
+                <md-select id="minutes" v-model="minute" @md-selected="selectMinute" :mdClass="'md-date-time-picker-time-select md-date-time-picker-time-select-minute'">
                   <md-option v-for="_m in minutes"
                         :value="_m"
                         :key="_m"
@@ -148,7 +148,7 @@
   }
 
   export default new MdComponent({
-    name: 'MdDatepickerDialog',
+    name: 'MdDateTimePickerDialog',
     components: {
       MdPopover,
       MdArrowRightIcon,
