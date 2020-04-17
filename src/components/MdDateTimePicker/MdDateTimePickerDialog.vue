@@ -119,6 +119,7 @@
   import subMonths from 'date-fns/subMonths'
   import getDate from 'date-fns/getDate'
   import getHours from 'date-fns/getHours'
+  import getMinutes from 'date-fns/getMinutes'
   import getDay from 'date-fns/getDay'
   import getDaysInMonth from 'date-fns/getDaysInMonth'
   import getMonth from 'date-fns/getMonth'
@@ -405,11 +406,21 @@
           minutes.push(minute);
         }
         this.minutes = minutes;
+      },
+      initHour() {
+        let hour = getHours(this.selectedDate);
+        this.hour = hour<10?'0'+hour:hour;
+      },
+      initMinute() {
+        let minute = getMinutes(this.selectedDate);
+        this.minute = minute<10?'0'+minute:minute;
       }
     },
     created () {
       this.setAvailableYears()
       this.resetDate();
+      this.initHour();
+      this.initMinute();
       this.getHourList();
       this.getMinuteList();
     }
