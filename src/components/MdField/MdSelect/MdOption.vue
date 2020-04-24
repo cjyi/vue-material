@@ -1,5 +1,6 @@
 <template>
   <md-menu-item :class="optionClasses" :disabled="isDisabled" @click="setSelection">
+    <md-icon v-if="icon">{{icon}}</md-icon>
     <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" :disabled="isDisabled" />
 
     <span class="md-list-item-text" ref="text">
@@ -15,7 +16,8 @@
     name: 'MdOption',
     props: {
       value: [String, Number, Boolean],
-      disabled: Boolean
+      disabled: Boolean,
+      icon: String
     },
     inject: {
       MdSelect: {},
@@ -67,13 +69,9 @@
     },
     methods: {
       getTextContent () {
-        if (this.$el) {
-          return this.$el.textContent.trim()
-        }
-
         const slot = this.$slots.default
 
-        return slot && slot[0].text ? slot[0].text.trim() : ''
+        return slot ? slot[0].text.trim() : ''
       },
       setIsSelected () {
         if (!this.isMultiple) {
@@ -102,7 +100,7 @@
         }
       },
       setItem () {
-        this.$set(this.MdSelect.items, this.key, this.getTextContent())
+        this.$set(this.MdSelect.items, this.key, {textContent:this.getTextContent(),icon:this.icon})
       }
     },
     updated () {

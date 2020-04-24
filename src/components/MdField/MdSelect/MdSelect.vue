@@ -8,6 +8,7 @@
     :md-offset-y="offset.y"
     :md-dense="mdDense"
     @md-closed="onClose">
+    <md-icon v-if="MdSelect.icon">{{MdSelect.icon}}</md-icon>
     <md-input
       class="md-input md-select-value"
       v-model="MdSelect.label"
@@ -89,6 +90,7 @@
         MdSelect: {
           items: {},
           label: null,
+          icon: null,
           multiple: false,
           modelValue: this.localValue,
           setValue: this.setValue,
@@ -225,13 +227,14 @@
         this.MdSelect.label = newLabel
       },
       setContentByValue () {
-        const textContent = this.MdSelect.items[this.localValue]
-
-        if (textContent) {
+        if (this.MdSelect.items[this.localValue]) {
+          const {textContent,icon} = this.MdSelect.items[this.localValue];
+          this.MdSelect.icon = icon;
           this.setContent(textContent)
         } else {
           this.setContent('')
         }
+
       },
       setMultipleValue (value) {
         const newValue = value
@@ -246,7 +249,7 @@
         let content = []
 
         this.localValue.forEach(item => {
-          const textContent = this.MdSelect.items[item]
+          const {textContent,icon} = this.MdSelect.items[item]
 
           if (textContent) {
             content.push(textContent)
