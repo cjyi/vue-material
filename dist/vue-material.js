@@ -14257,6 +14257,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 var _raf = __webpack_require__(9);
 
@@ -14322,6 +14323,7 @@ exports.default = {
       MdSelect: {
         items: {},
         label: null,
+        icon: null,
         multiple: false,
         modelValue: this.localValue,
         setValue: this.setValue,
@@ -14457,9 +14459,12 @@ exports.default = {
       this.MdSelect.label = newLabel;
     },
     setContentByValue: function setContentByValue() {
-      var textContent = this.MdSelect.items[this.localValue];
+      if (this.MdSelect.items[this.localValue]) {
+        var _MdSelect$items$local = this.MdSelect.items[this.localValue],
+            textContent = _MdSelect$items$local.textContent,
+            icon = _MdSelect$items$local.icon;
 
-      if (textContent) {
+        this.MdSelect.icon = icon;
         this.setContent(textContent);
       } else {
         this.setContent('');
@@ -14480,7 +14485,10 @@ exports.default = {
       var content = [];
 
       this.localValue.forEach(function (item) {
-        var textContent = _this.MdSelect.items[item];
+        var _MdSelect$items$item = _this.MdSelect.items[item],
+            textContent = _MdSelect$items$item.textContent,
+            icon = _MdSelect$items$item.icon;
+
 
         if (textContent) {
           content.push(textContent);
@@ -15372,7 +15380,8 @@ exports.default = {
   name: 'MdOption',
   props: {
     value: [String, Number, Boolean],
-    disabled: Boolean
+    disabled: Boolean,
+    icon: String
   },
   inject: {
     MdSelect: {},
@@ -15426,13 +15435,9 @@ exports.default = {
   },
   methods: {
     getTextContent: function getTextContent() {
-      if (this.$el) {
-        return this.$el.textContent.trim();
-      }
-
       var slot = this.$slots.default;
 
-      return slot && slot[0].text ? slot[0].text.trim() : '';
+      return slot ? slot[0].text.trim() : '';
     },
     setIsSelected: function setIsSelected() {
       if (!this.isMultiple) {
@@ -15461,7 +15466,7 @@ exports.default = {
       }
     },
     setItem: function setItem() {
-      this.$set(this.MdSelect.items, this.key, this.getTextContent());
+      this.$set(this.MdSelect.items, this.key, { textContent: this.getTextContent(), icon: this.icon });
     }
   },
   updated: function updated() {
@@ -15472,6 +15477,7 @@ exports.default = {
     this.setIsSelected();
   }
 }; //
+//
 //
 //
 //
@@ -31097,6 +31103,10 @@ var render = function() {
       }
     },
     [
+      _vm.MdSelect.icon
+        ? _c("md-icon", [_vm._v(_vm._s(_vm.MdSelect.icon))])
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "md-input",
         _vm._g(
@@ -31369,6 +31379,8 @@ var render = function() {
       on: { click: _vm.setSelection }
     },
     [
+      _vm.icon ? _c("md-icon", [_vm._v(_vm._s(_vm.icon))]) : _vm._e(),
+      _vm._v(" "),
       _vm.MdSelect.multiple
         ? _c("md-checkbox", {
             staticClass: "md-primary",
