@@ -249,10 +249,10 @@
         let content = []
 
         this.localValue.forEach(item => {
-          const {textContent,icon} = this.MdSelect.items[item]
+          const current = this.MdSelect.items[item]
 
-          if (textContent) {
-            content.push(textContent)
+          if (current) {
+            content.push(current.textContent)
           }
         })
 
