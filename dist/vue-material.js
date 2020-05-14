@@ -9706,6 +9706,7 @@ exports.default = {
       type: Boolean,
       default: true
     },
+    readonly: Boolean,
     mdOverrideNative: {
       type: Boolean,
       default: true
@@ -12518,7 +12519,8 @@ exports.default = {
     MdDebounce: {
       type: Number,
       default: 1000
-    }
+    },
+    readonly: Boolean
   },
   data: function data() {
     return {
@@ -12858,7 +12860,8 @@ exports.default = {
     MdDebounce: {
       type: Number,
       default: 1000
-    }
+    },
+    readonly: Boolean
   },
   data: function data() {
     return {
@@ -28287,7 +28290,7 @@ var render = function() {
       _vm._v(" "),
       _c("md-input", {
         ref: "input",
-        attrs: { type: _vm.type, pattern: _vm.pattern },
+        attrs: { type: _vm.type, readonly: _vm.readonly, pattern: _vm.pattern },
         nativeOn: {
           focus: function($event) {
             return _vm.onFocus($event)
@@ -28470,7 +28473,11 @@ var render = function() {
         [
           _c("md-input", {
             ref: "minDate",
-            attrs: { type: _vm.type, pattern: _vm.pattern },
+            attrs: {
+              readonly: _vm.readonly,
+              type: _vm.type,
+              pattern: _vm.pattern
+            },
             nativeOn: {
               focus: function($event) {
                 return _vm.onMinDateFocus($event)
@@ -29438,7 +29445,7 @@ var render = function() {
       _vm._v(" "),
       _c("md-input", {
         ref: "input",
-        attrs: { type: _vm.type, pattern: _vm.pattern },
+        attrs: { readonly: _vm.readonly, type: _vm.type, pattern: _vm.pattern },
         nativeOn: {
           focus: function($event) {
             return _vm.onFocus($event)

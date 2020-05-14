@@ -2,7 +2,7 @@
   <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleMinDateDialog" />
     <span class="input-item">
-      <md-input :type="type" ref="minDate" v-model="minDate" @focus.native="onMinDateFocus" :pattern="pattern" />
+      <md-input :readonly="readonly"  :type="type" ref="minDate" v-model="minDate" @focus.native="onMinDateFocus" :pattern="pattern" />
       <keep-alive>
         <md-datepicker-dialog
           v-if="showMinDateDialog"
@@ -73,7 +73,8 @@
       MdDebounce: {
         type: Number,
         default: 1000
-      }
+      },
+      readonly:Boolean,
     },
     data: () => ({
       showMinDateDialog: false,
